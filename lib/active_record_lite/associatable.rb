@@ -74,7 +74,7 @@ module Associatable
     define_method(association_name) do
       aps.other_class.where({
           aps.primary_key => instance_variable_get("@#{aps.foreign_key}".to_sym)
-        }).first
+        }).first # rename for readibility
       # rows = DBConnection.execute(<<-SQL, instance_variable_get("@#{aps.foreign_key}".to_sym))
       #   SELECT *
       #   FROM #{aps.other_table_name}
